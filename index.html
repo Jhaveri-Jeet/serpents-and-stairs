@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Serpents &amp; Stairs</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ===== Start Screen ===== -->
+  <div id="start-screen" class="overlay">
+    <div class="start-card">
+      <h1><span class="emoji">🐍</span> Serpents &amp; Stairs <span class="emoji">🪜</span></h1>
+      <p class="subtitle">A classic race to square 100 — climb the ladders, dodge the snakes.</p>
+
+      <div class="setup-block">
+        <h2>Players</h2>
+        <div id="player-count-select" class="count-select">
+          <button type="button" data-count="2" class="count-btn active">2</button>
+          <button type="button" data-count="3" class="count-btn">3</button>
+          <button type="button" data-count="4" class="count-btn">4</button>
+        </div>
+
+        <div id="player-name-list" class="player-name-list"></div>
+      </div>
+
+      <button id="start-btn" class="primary-btn">Start Game</button>
+    </div>
+  </div>
+
+  <!-- ===== Main Game Screen ===== -->
+  <div id="game-screen" class="game-screen hidden">
+
+    <div id="board-wrap" class="board-wrap">
+      <div id="board-square" class="board-square">
+        <div id="cells" class="cells"></div>
+        <svg id="board-svg" class="board-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none"></svg>
+        <div id="tokens" class="tokens"></div>
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1><span class="emoji">🐍</span> Serpents &amp; Stairs</h1>
+      </div>
+
+      <div class="turn-panel">
+        <div class="turn-label">Current Turn</div>
+        <div id="turn-indicator" class="turn-indicator"></div>
+        <div id="turn-banner" class="turn-banner"></div>
+      </div>
+
+      <div class="dice-panel">
+        <div id="dice" class="dice" data-value="1">
+          <div class="dice-face">
+            <span class="pip p1"></span><span class="pip p2"></span><span class="pip p3"></span>
+            <span class="pip p4"></span><span class="pip p5"></span><span class="pip p6"></span>
+          </div>
+        </div>
+        <button id="roll-btn" class="primary-btn roll-btn">Roll Dice</button>
+      </div>
+
+      <div class="players-panel">
+        <div class="players-panel-title">Players</div>
+        <ul id="player-list" class="player-list"></ul>
+      </div>
+
+      <button id="restart-btn" class="ghost-btn">Restart Game</button>
+    </aside>
+  </div>
+
+  <!-- ===== Win Screen ===== -->
+  <div id="win-screen" class="overlay hidden">
+    <div id="confetti-layer" class="confetti-layer"></div>
+    <div class="win-card">
+      <div class="win-emoji">🏆</div>
+      <div id="win-title" class="win-title">Player 1 Wins!</div>
+      <p class="win-subtitle">Reached square 100 first. Well played!</p>
+      <button id="play-again-btn" class="primary-btn">Play Again</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
